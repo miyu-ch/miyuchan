@@ -24,12 +24,12 @@ class serverInfoPlugin(commands.Cog):
                 embed.set_thumbnail(url=server.icon)
                 embed.add_field(name="Server Name", value=server.name, inline=False)
                 embed.add_field(name="Server ID", value=server.id, inline=False)
-                embed.add_field(name="Owner", value=server.owner.display_name, inline=False)
-                embed.add_field(name="Members Count", value=members_count, inline=False)
-                embed.add_field(name="Roles Count", value=roles_count, inline=False)
-                embed.add_field(name="Channels Count", value=channels_count, inline=False)
-                embed.add_field(name="Creation Date", value=created_at, inline=False)
-                await message.send(embed=embed)
+                embed.add_field(name="Owner", value=server.owner.display_name, inline=True)
+                embed.add_field(name="Members Count", value=members_count, inline=True)
+                embed.add_field(name="Roles Count", value=roles_count, inline=True)
+                embed.add_field(name="Channels Count", value=channels_count, inline=True)
+                embed.add_field(name="Creation Date", value=created_at, inline=True)
+                await message.channel.send(embed=embed)
 
 async def setup(bot):
     await bot.add_cog(serverInfoPlugin(bot))
