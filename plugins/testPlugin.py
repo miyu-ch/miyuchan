@@ -12,7 +12,7 @@ class testPlugin(commands.Cog):
     
     @commands.Cog.listener("on_message")
     async def testplugin_commands(self, message):
-        if "helloPlugin" in has.get(str(message.author.guild.id), 'plugins'):
+        if "testPlugin" in has.get(str(message.author.guild.id), 'plugins'):
             if message.content == "!test":
                 await message.channel.send("Testing")
             
