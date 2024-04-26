@@ -4,7 +4,6 @@ from discord import app_commands
 from configparser import ConfigParser
 
 has = ConfigParser()
-has.read('server_config.ini')
 
 class testPlugin(commands.Cog):
     def __init__(self, bot: commands.Bot):
@@ -12,11 +11,10 @@ class testPlugin(commands.Cog):
     
     @commands.Cog.listener("on_message")
     async def testplugin_commands(self, message):
+        has.read('server_config.ini')
         if "testPlugin" in has.get(str(message.author.guild.id), 'plugins'):
             if message.content == "!test":
                 await message.channel.send("Testing")
             
 async def setup(bot):
     await bot.add_cog(testPlugin(bot))
-
-
