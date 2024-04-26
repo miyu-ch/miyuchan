@@ -14,7 +14,6 @@ class serverInfoPlugin(commands.Cog):
         has.read('server_config.ini')
         if "serverInfoPlugin" in has.get(str(message.author.guild.id), 'plugins'):
             if message.content == "!serverinfo":
-
                 server = message.author.guild
                 roles_count = len(server.roles)
                 channels_count = len(server.channels)
@@ -25,8 +24,7 @@ class serverInfoPlugin(commands.Cog):
                 embed.set_thumbnail(url=server.icon)
                 embed.add_field(name="Server Name", value=server.name, inline=False)
                 embed.add_field(name="Server ID", value=server.id, inline=False)
-                embed.add_field(name="Owner", value=server.owner, inline=False)
-                embed.add_field(name="Region", value=str(server.region).title(), inline=False)
+                embed.add_field(name="Owner", value=server.owner.display_name, inline=False)
                 embed.add_field(name="Members Count", value=members_count, inline=False)
                 embed.add_field(name="Roles Count", value=roles_count, inline=False)
                 embed.add_field(name="Channels Count", value=channels_count, inline=False)
