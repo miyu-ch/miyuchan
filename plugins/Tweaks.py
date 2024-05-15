@@ -13,8 +13,7 @@ class Tweaks(commands.Cog):
         def __init__(self):
             option=[
                 discord.SelectOption(label="Server", description="Placeholder"),
-                discord.SelectOption(label="Roles", description="Placeholder"),
-                discord.SelectOption(label="Others", description="Placeholder") 
+                discord.SelectOption(label="Roles", description="Placeholder")
             ]
             super().__init__(placeholder="In which domain do you need help with ?", options=option, min_values=1, max_values=1)
         
@@ -31,7 +30,6 @@ class Tweaks(commands.Cog):
             if self.values[0] == 'Roles':                        
                 embed.add_field(name="server-roles", value="Show server's roles", inline=False)
                 embed.add_field(name="role @role", value="Get information from a role", inline=False)
-                
             await i.response.send_message(embed=embed, ephemeral=True)
         
     class tweaksView(discord.ui.View):
